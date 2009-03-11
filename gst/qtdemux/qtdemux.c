@@ -45,7 +45,11 @@
 #include "config.h"
 #endif
 
+#ifdef BUILD_WITH_ANDROID
+/* Android doesn't support il8n, remove it */
+#define  _(x) (x)
 #include "gst/gst-i18n-plugin.h"
+#endif /* BUILD_WITH_ANDROID */
 
 #include <gst/tag/tag.h>
 
