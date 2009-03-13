@@ -3,41 +3,38 @@ LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES:= \
-    gstwavparse.c
-        	
+	gstwavparse.c
+
 LOCAL_SHARED_LIBRARIES := \
-    libgstriff-0.10         \
-    libgstreamer-0.10       \
-    libgstbase-0.10         \
-    libglib-2.0             \
-    libgthread-2.0          \
-    libgmodule-2.0          \
-    libgobject-2.0
-
-
-
-LOCAL_TOP_PATH := $(LOCAL_PATH)/./../../..
+	libgstriff-0.10		 \
+	libgstreamer-0.10	   \
+	libgstbase-0.10		 \
+	libglib-2.0			 \
+	libgthread-2.0		  \
+	libgmodule-2.0		  \
+	libgobject-2.0
 
 LOCAL_MODULE:= libgstwavparse
 
+LOCAL_PRELINK_MODULE := false 
 
-LOCAL_C_INCLUDES := \
-    $(LOCAL_PATH)                       \
-    $(LOCAL_PATH)/./../../              \
-    $(LOCAL_TOP_PATH)/gst-plugins-base/gst-libs \
-    $(LOCAL_TOP_PATH)/gstreamer         \
-    $(LOCAL_TOP_PATH)/gstreamer/android \
-    $(LOCAL_TOP_PATH)/gstreamer/libs    \
-    $(LOCAL_TOP_PATH)/gstreamer/gst	    \
-    $(LOCAL_TOP_PATH)/gstreamer/gst/android	    \
-    $(LOCAL_TOP_PATH)/glib              \
-    $(LOCAL_TOP_PATH)/glib/android      \
-    $(LOCAL_TOP_PATH)/glib/glib         \
-    $(LOCAL_TOP_PATH)/glib/gmodule      \
-    $(LOCAL_TOP_PATH)/glib/gobject      \
-    $(LOCAL_TOP_PATH)/glib/gthread
+LOCAL_C_INCLUDES := 				\
+	$(LOCAL_PATH)				\
+	$(GST_PLUGINS_GOOD_TOP)			\
+	external/gst-plugins-base/gst-libs 	\
+	external/gstreamer		 	\
+	external/gstreamer/android 		\
+	external/gstreamer/libs			\
+	external/gstreamer/gst			\
+	external/gstreamer/gst/android		\
+	external/glib			  	\
+	external/glib/android	  		\
+	external/glib/glib		 	\
+	external/glib/gmodule	  		\
+	external/glib/gobject	  		\
+	external/glib/gthread
 
 LOCAL_CFLAGS := \
-    -DHAVE_CONFIG_H			
+	-DHAVE_CONFIG_H			
 
 include $(BUILD_SHARED_LIBRARY)
